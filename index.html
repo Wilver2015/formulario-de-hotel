@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Reserva de Hotel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"], input[type="date"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Sistema de Reserva de Hotel</h2>
+    <form action="procesar_formulario.php" method="post">
+      
+         <!-- Menú desplegable para seleccionar hotel -->
+        <label for="Hotel">Hotel:</label>
+        <select id="Hotel" name="hotel" required>
+            <option value="">Seleccione su hotel</option>
+            <option value="Punta Cana">Punta Cana Princess</option>
+            <option value="Punta Cana">Grand Palladium Punta Cana Resort & spa</option>
+            <option value="Punta Cana">Occidental Punta Cana </option>
+            <option value="Puerto Palta ">Marien Puerto Plata</option>
+            <option value="Puerto Plata">Costambar Puerto Plata</option>
+            <option value="Santo Domingo">Hotel Intercontinental Santo Domingo</option>
+            <option value="Santo Domingo">Holiday Inn Santo Domingo</option>
+            <option value="Santo Domingo">Dominican Fiesta Hotel Santo Domingo</option>
+            <option value="Santo Domingo">El Embajador a Royal Hideaway Santo Domingo</option>
+            <option value="Santo Domingo">Hotel Jaragua Santo Domingo</option>
+        </select>
+        
+        <hr>
+
+        <!-- Sección de Habitación -->
+        <fieldset>
+            <legend>Información de la Habitación</legend>
+            <label for="habitacion-numero">Número de Habitación:</label>
+            <input type="number" id="habitacion-numero" name="habitacion-numero" placeholder="Escribe el número de la habitación" required>
+
+            <label for="habitacion-tipo">Tipo de Habitación:</label>
+            <select id="habitacion-tipo" name="habitacion-tipo" required>
+                <option value="">Seleccione el tipo de habitación</option>
+                <option value="individual">Individual</option>
+                <option value="doble">Doble</option>
+                <option value="suite">Suite</option>
+            </select>
+
+            <label for="habitacion-precio">Precio por Noche (en USD o RD):</label>
+            <input type="number" id="habitacion-precio" name="habitacion-precio" placeholder="Escribe el precio por noche" required>
+        </fieldset>
+
+        <hr>
+
+        <!-- Sección de Cliente -->
+        <fieldset>
+            <legend>Información del Cliente</legend>
+            <label for="cliente-nombre">Nombre del Cliente:</label>
+            <input type="text" id="cliente-nombre" name="cliente-nombre" placeholder="Escribe el nombre del cliente" required>
+
+            <label for="cliente-email">Correo Electrónico del Cliente:</label>
+            <input type="email" id="cliente-email" name="cliente-email" placeholder="ejemplo@correo.com" required>
+
+            <label for="cliente-telefono">Teléfono del Cliente:</label>
+            <input type="tel" id="cliente-telefono" name="cliente-telefono" placeholder="Escribe el número de teléfono" required>
+
+            <label for="cliente-fecha-entrada">Fecha de Entrada:</label>
+            <input type="date" id="cliente-fecha-entrada" name="cliente-fecha-entrada" required>
+
+            <label for="cliente-fecha-salida">Fecha de Salida:</label>
+            <input type="date" id="cliente-fecha-salida" name="cliente-fecha-salida" required>
+        </fieldset>
+
+        <hr>
+
+        <!-- Relación de Cliente con Habitación y Hotel -->
+        <fieldset>
+            <legend>Relación Cliente-Hotel-Habitación</legend>
+            <label for="cliente-hotel">Hotel Asignado:</label>
+            <select id="cliente-hotel" name="cliente-hotel" required>
+                <option value="">Seleccione un hotel</option>
+                <option value="hotel-1">Hotel A</option>
+                <option value="hotel-2">Hotel B</option>
+                <option value="hotel-3">Hotel C</option>
+            </select>
+
+            <label for="cliente-habitacion">Habitación Asignada:</label>
+            <select id="cliente-habitacion" name="cliente-habitacion" required>
+                <option value="">Seleccione una habitación</option>
+                <option value="habitacion-101">Habitación 101</option>
+                <option value="habitacion-102">Habitación 102</option>
+                <option value="habitacion-103">Habitación 103</option>
+            </select>
+        </fieldset>
+
+        <!-- Botón de envío -->
+        <button type="submit">Registrar</button>
+    </form>
+</body>
+</html>
